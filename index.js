@@ -1,6 +1,6 @@
 const robot = require("robotjs");
 
-const WAIT_MSEC = 1000 * 60 * 10;
+const WAIT_MSEC = 1000 * 60 * 5;
 
 const wait = msec => new Promise(resolve => setTimeout(resolve, msec));
 
