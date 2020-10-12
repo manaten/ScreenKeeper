@@ -19,8 +19,10 @@ const main = async () => {
 
         robot.moveMouse(newX, newY);
         log(`move to (${newX}, ${newY}).`);
+        oldX = newX;
+      } else {
+        oldX = mouse.x;
       }
-      oldX = mouse.x;
     } catch(e) {
       console.error(e);
     }
