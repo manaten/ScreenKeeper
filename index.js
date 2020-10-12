@@ -1,8 +1,11 @@
 const robot = require("robotjs");
 
-const WAIT_MSEC = 1000 * 60 * 5;
+const WAIT_MSEC = 1000 * 60;
 
 const wait = msec => new Promise(resolve => setTimeout(resolve, msec));
+const log = message => console.log(`[${new Date().toISOString()}] ${message}`);
+
+let oldX = 0;
 
 const main = async () => {
   while(true) {
@@ -10,11 +13,14 @@ const main = async () => {
       const screenSize = robot.getScreenSize();
       const mouse = robot.getMousePos();
 
-      const newX = mouse.x + 1 < screenSize.width ? mouse.x + 1 : mouse.x - 1;
-      const newY = mouse.y;
+      if (oldX === mouse.x) {
+        const newX = mouse.x + 1 < screenSize.width ? mouse.x + 1 : mouse.x - 1;
+        const newY = mouse.y;
 
-      robot.moveMouse(newX, newY);
-      console.log(`move to (${newX}, ${newY}).`);
+        robot.moveMouse(newX, newY);
+        log(`move to (${newX}, ${newY}).`);
+      }
+      oldX = mouse.x;
     } catch(e) {
       console.error(e);
     }
