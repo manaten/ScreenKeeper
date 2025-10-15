@@ -15,7 +15,7 @@
     "lint-staged": "lint-staged",
     "lint:js": "eslint **/*.{js,jsx,mjs,ts,tsx}",
     "prepare": "husky",
-    "start": "node index.js",
+    "start": "node index.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
