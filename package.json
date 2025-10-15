@@ -1,11 +1,12 @@
 {
-  "name": "ts-node-cli-template",
+  "name": "screenkeeper",
   "author": "manaten@manaten.net",
   "private": true,
   "license": "MIT",
   "type": "module",
   "version": "1.0.0",
-  "description": "manaten's ts-node cli script template.",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "fix": "run-s fix:*",
     "fix:js": "run-s \"lint:js -- --fix\"",
@@ -14,9 +15,12 @@
     "lint-staged": "lint-staged",
     "lint:js": "eslint **/*.{js,jsx,mjs,ts,tsx}",
     "prepare": "husky",
-    "start": "node src/index.ts",
+    "start": "node index.js",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "robotjs": "^0.6.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
